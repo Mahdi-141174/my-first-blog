@@ -4,12 +4,14 @@
         <title>Mehdi's blog</title>
     <body>
         <header>
-            <h1><a href="/">Django girls blog</a><h1>
+            <h1><a href="/">Django Blog based on Djangogirls Tutorial</a><h1>
         </header>
-        <article>
-            <h2><a href="">My first post</a></h2>
-        </article>
-        <p>Hi</p>
-        <p>it works</p>
+        {%for post in posts%}
+            <article>
+                <time>published: {{post.published_date}}</time>
+                <h2><a href="">{{post.title}}</a></h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </article>
+        {% endfor %}
     </body>
 <html>
