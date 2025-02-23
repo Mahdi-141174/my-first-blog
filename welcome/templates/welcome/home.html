@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreelanceHub - Home</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: white;
+    }
+    .jumbotron {
+      background: url('banner-image.jpg') no-repeat center center;
+      background-size: cover;
+      color: black;
+      text-shadow: 2px 2px 4px #000;
+      margin-bottom: 0;
+    }
+    .search-panel {
+      margin-top: -50px;
+      padding: 20px;
+      background: lightgreen;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .feature {
+      padding: 30px 15px;
+    }
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href={% url "home"%}>FreelanceHub</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" id="nav-signin" href={% url "sign_in"%}>Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-signup" href={% url "sign_up"%}>Sign Up</a>
+        </li>
+        <!-- Language Toggle Button -->
+        <li class="nav-item">
+          <button id="lang-toggle" class="btn btn-outline-light ml-2">فارسی</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h1 id="hero-title" class="display-4">Discover Top Freelance Talent</h1>
+      <p id="hero-subtitle" class="lead">Connect with professionals, showcase your skills, and find the perfect job opportunities.</p>
+    </div>
+  </div>
+  
+  <!-- Search Panel -->
+  <div class="container search-panel">
+    <form action="/search" method="get">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" id="search-input" name="q" placeholder="Search by skills, location, etc." required>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Feature Highlights -->
+  <div class="container mt-5">
+    <div class="row text-center">
+      <div class="col-md-4 feature">
+        <h3 id="feature-title-1">Create Your Profile</h3>
+        <p id="feature-desc-1">Register and build a professional profile that highlights your skills and projects.</p>
+      </div>
+      <div class="col-md-4 feature">
+        <h3 id="feature-title-2">Explore Opportunities</h3>
+        <p id="feature-desc-2">Search and filter through freelance jobs and connect with top employers.</p>
+      </div>
+      <div class="col-md-4 feature">
+        <h3 id="feature-title-3">Grow Your Network</h3>
+        <p id="feature-desc-3">Engage with a community of professionals and expand your career horizons.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contact Information -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4 id="contact-title">Contact Us</h4>
+        <p id="contact-info">Email: support@freelancehub.com | Phone: +1234567890</p>
+        <p id="follow-us">
+          Follow us on:
+          <a href="#" class="text-primary">Facebook</a> | 
+          <a href="#" class="text-info">Twitter</a> | 
+          <a href="#" class="text-danger">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="container text-center">
+      <p id="footer-text">&copy; 2025 FreelanceHub. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap and jQuery Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- Language Toggle Script -->
+  <script>
+    // Define translations for English (en) and Persian (fa)
+    var translations = {
+      en: {
+        'nav-signin': 'Sign In',
+        'nav-signup': 'Sign Up',
+        'hero-title': 'Discover Top Freelance Talent',
+        'hero-subtitle': 'Connect with professionals, showcase your skills, and find the perfect job opportunities.',
+        'search-placeholder': 'Search by skills, location, etc.',
+        'feature-title-1': 'Create Your Profile',
+        'feature-desc-1': 'Register and build a professional profile that highlights your skills and projects.',
+        'feature-title-2': 'Explore Opportunities',
+        'feature-desc-2': 'Search and filter through freelance jobs and connect with top employers.',
+        'feature-title-3': 'Grow Your Network',
+        'feature-desc-3': 'Engage with a community of professionals and expand your career horizons.',
+        'contact-title': 'Contact Us',
+        'contact-info': 'Email: mahdi.tb95@gmail.com | Phone: +989184990856',
+        'follow-us': 'Follow us on:',
+        'footer-text': '© 2025 FreelanceHub. All rights reserved.'
+      },
+      fa: {
+        'nav-signin': 'ورود',
+        'nav-signup': 'ثبت نام',
+        'hero-title': 'بهترین استعدادهای فریلنس را کشف کنید',
+        'hero-subtitle': 'با حرفه‌ای‌ها ارتباط برقرار کنید، مهارت‌های خود را به نمایش بگذارید و فرصت‌های شغلی مناسب را بیابید.',
+        'search-placeholder': 'جستجو بر اساس مهارت‌ها، مکان، و غیره',
+        'feature-title-1': 'پروفایل خود را بسازید',
+        'feature-desc-1': 'ثبت نام کنید و یک پروفایل حرفه‌ای بسازید که مهارت‌ها و پروژه‌های شما را به نمایش بگذارد.',
+        'feature-title-2': 'فرصت‌ها را کاوش کنید',
+        'feature-desc-2': 'جستجو و فیلتر فرصت‌های شغلی فریلنس و ارتباط با کارفرمایان برتر.',
+        'feature-title-3': 'شبکه خود را گسترش دهید',
+        'feature-desc-3': 'با جامعه‌ای از حرفه‌ای‌ها در ارتباط باشید و افق‌های شغلی خود را گسترش دهید.',
+        'contact-title': 'تماس با ما',
+        'contact-info': 'ایمیل: mahdi.tb95@gmail.com | تلفن: 09184990856',
+        'follow-us': 'ما را دنبال کنید:',
+        'footer-text': '© 2025 FreelanceHub. تمامی حقوق محفوظ است.'
+      }
+    };
+
+    // Set default language to English
+    var currentLang = 'en';
+
+    // Function to update translatable elements
+    function updateLanguage(lang) {
+      document.getElementById('nav-signin').textContent = translations[lang]['nav-signin'];
+      document.getElementById('nav-signup').textContent = translations[lang]['nav-signup'];
+      document.getElementById('hero-title').textContent = translations[lang]['hero-title'];
+      document.getElementById('hero-subtitle').textContent = translations[lang]['hero-subtitle'];
+      document.getElementById('search-input').setAttribute('placeholder', translations[lang]['search-placeholder']);
+      document.getElementById('feature-title-1').textContent = translations[lang]['feature-title-1'];
+      document.getElementById('feature-desc-1').textContent = translations[lang]['feature-desc-1'];
+      document.getElementById('feature-title-2').textContent = translations[lang]['feature-title-2'];
+      document.getElementById('feature-desc-2').textContent = translations[lang]['feature-desc-2'];
+      document.getElementById('feature-title-3').textContent = translations[lang]['feature-title-3'];
+      document.getElementById('feature-desc-3').textContent = translations[lang]['feature-desc-3'];
+      document.getElementById('contact-title').textContent = translations[lang]['contact-title'];
+      document.getElementById('contact-info').textContent = translations[lang]['contact-info'];
+      // Update the "Follow us on:" text while preserving the links
+      var followUsEl = document.getElementById('follow-us');
+      followUsEl.childNodes[0].textContent = translations[lang]['follow-us'] + ' ';
+      document.getElementById('footer-text').textContent = translations[lang]['footer-text'];
+      
+      // Update the language toggle button to show the alternative language
+      if (lang === 'en') {
+        document.getElementById('lang-toggle').textContent = 'فارسی';
+        document.documentElement.setAttribute('dir', 'ltr');
+      } else {
+        document.getElementById('lang-toggle').textContent = 'English';
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    }
+
+    // Event listener for the language toggle button
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'en') ? 'fa' : 'en';
+      updateLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>
